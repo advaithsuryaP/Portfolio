@@ -22,7 +22,6 @@ export class TablesComponent implements OnInit, OnDestroy {
       (data: {feed: ItunesData}) => {
         this.isLoading = false;
         this.iTunesData = data.feed;
-        console.log(data.feed);
       },
       (err) => {
         this.isLoading = false;
