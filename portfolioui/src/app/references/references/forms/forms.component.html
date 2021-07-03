@@ -1,0 +1,43 @@
+<form [formGroup]="referenceForm" (ngSubmit)="onSubmit()">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" formControlName="username" required>
+                    <mat-error *ngIf="referenceForm.get('username')?.hasError('required')">This field is mandatory</mat-error>
+                    <mat-error *ngIf="referenceForm.get('username')?.hasError('nameIsForbidden')">This username already exists</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" required>
+                    <mat-error *ngIf="referenceForm.get('email')?.hasError('required')">This field is mandatory</mat-error>
+                    <mat-error *ngIf="referenceForm.get('email')?.hasError('email')">Please enter a valid email</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option *ngFor="let gender of genders" [value]="gender">
+                            {{gender}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>This field is mandatory</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 offset-3">
+                <button mat-button type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>

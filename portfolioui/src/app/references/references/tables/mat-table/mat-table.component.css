@@ -1,0 +1,84 @@
+mat-form-field {
+    width: 100%;
+}
+
+/* All <th> elements of table */ 
+th {
+    font-weight: 600;
+    color: #fa2d48;
+}
+
+/* All <tr> elements in the table */
+tr {
+    cursor: pointer;
+}
+
+/* Miscellaneous */
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+
+
+/* <tr> elements of table */
+.mat-column-select {
+    width: 5%;
+}
+.mat-column-image {
+    width: 5%;
+}
+.mat-column-artist {
+    width: 10%;
+}
+.mat-column-latestAlbum {
+    width: 15%;
+} 
+.mat-column-category {
+    width: 7%;
+}
+.mat-column-releaseDate {
+    width: 8%;
+}
+.mat-column-price {
+    width: 5%;
+    font-weight: bold;
+}
+.mat-column-actions {
+    width: 10%;
+}
+
+/* checkbox during normal state, indeterminate state and also ripple state */
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #fa2d48 !important;
+}
+::ng-deep .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #fa2d48 !important;
+}
+::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #fa2d48 !important;
+}
+
+/* Reducing sizes of icon buttons */
+.action-button {
+    font-size: 20px;
+}
+
+.element-detail {
+    overflow: hidden;
+}
+tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
