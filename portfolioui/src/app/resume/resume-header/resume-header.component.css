@@ -1,0 +1,89 @@
+header {
+    height: 60px;
+}
+
+/* Base class */
+.navbar {
+    background-color: var(--body-color);
+} 
+
+/* Logo */
+.navbar-brand {
+    font-family: 'Fuggles', cursive;
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    font-size: 50px;
+}
+
+/* Toggle Icon */
+.navbar-toggler-icon {
+    color: var(--title-color);
+}
+
+/* Toggle Icon: FOCUS */
+.navbar-toggler:focus {
+    outline: unset;
+    border: unset;
+    box-shadow: unset; 
+}
+
+/* Logo and Toggle Icon: HOVER */
+.navbar-brand:hover, .navbar-toggler-icon:hover {
+    color: var(--first-color);
+}
+
+/* <li> */
+.nav-item {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/* <li> <a> */
+.nav-link {
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: 600;
+    height: 30px;
+}
+
+.nav-link:hover {
+    color: var(--first-color);
+}
+
+.active {
+    color: var(--first-color);
+}
+
+.btn-theme {
+    font-size: 22px;
+}
+
+.btn-theme:hover {
+    color: var(--first-color);
+}
+
+.btn-action {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+@media screen and (max-width: 767px) {
+    /* .navbar {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
+    } */
+    
+    .navbar-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid: 2rem;
+    }
+
+    .nav-link {
+        font-size: var(--normal-font-size);
+    }
+}
