@@ -1,0 +1,9 @@
+button {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn--social {
+    font-size: 22px;
+    color: blue;
+}
