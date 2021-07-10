@@ -52,14 +52,7 @@ header {
 
 .active {
     color: var(--first-color);
-}
-
-.btn-theme {
-    font-size: 22px;
-}
-
-.btn-theme:hover {
-    color: var(--first-color);
+    border-bottom: 2px solid var(--first-color);
 }
 
 .btn-action {
@@ -68,14 +61,33 @@ header {
     margin-bottom: 8px;
 }
 
+.btn-theme {
+    height: 30px;
+}
+
+.uil {
+    color: var(--first-color);
+}
+
+.btn-dropdown {
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--title-color);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #fff !important;
+}
+
 @media screen and (max-width: 767px) {
-    /* .navbar {
-        position: fixed;
+    .navbar {
+        /* position: fixed;
         right: 0;
         bottom: 0;
-        left: 0;
+        left: 0; */
         z-index: 1030;
-    } */
+    }
     
     .navbar-nav {
         display: grid;

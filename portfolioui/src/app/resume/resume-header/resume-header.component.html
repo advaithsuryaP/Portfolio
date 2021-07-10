@@ -3,10 +3,6 @@
         <div class="container">
             <a class="navbar-brand mt-1" [routerLink]="['']">Pandravada Surya Advaith</a>
             <div class="d-flex justify-content-start">
-                <!-- <button mat-icon-button (click)="toggleMode()">
-                    <mat-icon *ngIf="isDarkMode" class="btn-theme">wb_sunny</mat-icon>
-                    <mat-icon *ngIf="!isDarkMode" class="btn-theme">brightness_3</mat-icon>
-                </button> -->
                 <button mat-icon-button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                     aria-label="Toggle Navigation">
@@ -44,6 +40,25 @@
                         <a [routerLink]="['projects']" routerLinkActive="active" class="nav-link">
                             Projects
                         </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="settingsMenu" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Settings
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="settingsMenu">
+                            <li class="dropdown-item" (click)="toggleMode()">
+                                <a class="btn-dropdown">
+                                    {{isDarkMode ? 'Dark Mode' : 'Light Mode'}}
+                                    <i *ngIf="isDarkMode" class="uil uil-moon"></i>
+                                    <i *ngIf="!isDarkMode" class="uil uil-sun"></i>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-item">
+                                <a class="btn-dropdown">Login</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>  
