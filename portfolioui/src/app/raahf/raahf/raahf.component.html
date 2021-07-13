@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <span [routerLink]="['/raahf']" style="cursor: pointer;">Raahf</span>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened #sidenav>
+        <app-raahf-sidebar></app-raahf-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
