@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { ResumeRoutingModule } from './resume-routing.module';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-
 import { ResumeComponent } from './resume/resume.component';
 import { HomeComponent } from './resume/home/home.component';
 import { AboutComponent } from './resume/about/about.component';
@@ -16,30 +12,25 @@ import { EducationComponent } from './resume/education/education.component';
 import { ExperienceComponent } from './resume/experience/experience.component';
 import { ResumeHeaderComponent } from './resume-header/resume-header.component';
 import { CertificationsComponent } from './resume/certifications/certifications.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
+    HomeComponent,
+    AboutComponent,
     ResumeComponent,
-    ResumeHeaderComponent,
+    SkillsComponent,
+    ProjectsComponent,
     EducationComponent,
     ExperienceComponent,
-    SkillsComponent,
+    ResumeHeaderComponent,
     CertificationsComponent,
-    ProjectsComponent,
-    AboutComponent,
-    HomeComponent
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     ResumeRoutingModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-  ],
-  exports: [
-    MatButtonModule,
-    MatIconModule, 
   ]
 })
 export class ResumeModule { }
