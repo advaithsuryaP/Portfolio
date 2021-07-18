@@ -18,11 +18,8 @@ export class RaahfComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
-      if(res.matches) {
-        this.sidenav.mode = 'over';
-      } else {
-        this.sidenav.mode = 'side';
-      }
+      if(res.matches) this.sidenav.mode = 'over';
+      else this.sidenav.mode = 'side';
     });
   }
 

@@ -1,1 +1,38 @@
-<p>raahf-learning works!</p>
+<!-- <mat-toolbar color="primary">
+    <span>Learning</span>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Refresh Data" matTooltip="Refresh">
+        <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Fill Color" matTooltip="Change color">
+        <mat-icon>format_color_fill</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Text Size" matTooltip="Change text size">
+        <mat-icon>format_size</mat-icon>
+    </button>
+</mat-toolbar> -->
+<mat-tab-group [selectedIndex]="2">
+    <mat-tab>
+        <ng-template matTabLabel>
+            <mat-icon>language</mat-icon>
+            Geography
+        </ng-template>
+        Geography
+    </mat-tab>
+    <mat-tab>
+        <ng-template matTabLabel>
+            <mat-icon>scanner</mat-icon>
+            History
+        </ng-template>
+        History
+    </mat-tab>
+    <mat-tab>
+        <ng-template matTabLabel>
+            <mat-icon>local_library</mat-icon>
+            Library
+        </ng-template>
+        <ng-template matTabContent>
+            <app-learning-library></app-learning-library>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

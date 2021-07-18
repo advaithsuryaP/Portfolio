@@ -1,0 +1,11 @@
+.mat-toolbar {
+    height: 40px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-icon {
+    font-size: 21px;
+}

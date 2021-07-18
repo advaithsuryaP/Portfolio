@@ -1,0 +1,9 @@
+mat-panel-title {
+    font-weight: 600;
+}
+
+.delete-icon {
+    font-size: 18px;
+    color: coral;
+    cursor: pointer;
+}
