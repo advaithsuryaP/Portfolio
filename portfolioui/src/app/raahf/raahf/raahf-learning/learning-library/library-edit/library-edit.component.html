@@ -63,33 +63,37 @@
                 </div>
                 <mat-accordion>
                     <!-- Chapters -->
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>Chapters</mat-panel-title>
-                        </mat-expansion-panel-header>
-                        <div class="alert p-0 d-flex justify-content-between align-items-center"
-                            [ngClass]="[chapters.length === 0 ? 'alert-danger' : 'alert-primary']">
-                            <div class="fw-bold ms-1">
-                                <span *ngIf="chapters.length === 0">This book does not have any chapters yet</span>
-                                <span *ngIf="chapters.length > 0">
-                                    Total Chapters: <span>{{chapters.length}}</span>
-                                </span>
-                            </div>
+                    <mat-expansion-panel hideToggle expanded>
+                        <mat-expansion-panel-header class="d-flex justify-content-between">
+                            <mat-panel-title class="d-flex align-items-center">Chapters</mat-panel-title>
                             <div class="d-flex flex-row-reverse">
-                                <button mat-icon-button type="button" (click)="openChapterModal()" matTooltip="Add Chapter">
+                                <button mat-icon-button type="button" (click)="openChapterAddModal($event)" matTooltip="Add Chapter">
                                     <mat-icon>playlist_add</mat-icon>
                                 </button>
-                                <button mat-icon-button type="button" (click)="refresh()" matTooltip="Refresh">
+                                <button mat-icon-button type="button" (click)="refresh($event)" matTooltip="Refresh">
                                     <mat-icon>refresh</mat-icon>
                                 </button>
                             </div>
+                        </mat-expansion-panel-header>
+                        <div class="alert alert-danger fw-bold p-2" role="alert" *ngIf="chapters.length === 0">
+                            This book does not have any chapters yet!
                         </div>
-                        <ul class="list-group" *ngIf="chapters.length > 0">
-                            <li class="list-group-item d-flex justify-content-between" *ngFor="let chapter of chapters">
-                                <div class="chapter-name">{{chapter.value.chapterName}}</div>
-                                <i class="uil uil-trash-alt delete-icon" (click)="deleteChapter(chapter)" matTooltip="Delete Chapter"></i>
-                            </li>
-                        </ul>
+                        <div class="wrapper" *ngIf="chapters.length > 0">
+                            <ul class="list-group" formArrayName="chapters">
+                                <li class="list-group-item list-group-item-action d-flex justify-content-between"
+                                    *ngFor="let chapter of chapters; let i = index"
+                                    (click)="openChapterDetailModal(chapter.value)"
+                                    [formGroupName]="i">
+                                    <div class="chapter-name">{{chapter.value.chapterName}}</div>
+                                    <div class="d-flex">
+                                        <mat-icon (click)="deleteChapter(i)" color="warn"
+                                            matTooltip="Delete Chapter">delete</mat-icon>
+                                        <mat-icon (click)="openChapterEditModal($event, chapter, i)"
+                                            matTooltip="Edit Chapter" style="color: greenyellow;">rate_review</mat-icon>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </mat-expansion-panel>
                 </mat-accordion>
             </mat-card-content>

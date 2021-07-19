@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Chapter } from 'src/app/raahf/models/learning/library.model';
 
 @Component({
   selector: 'app-chapter-edit',
@@ -9,17 +10,22 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ChapterEditComponent implements OnInit {
   chapterForm!: FormGroup;
-  constructor(public dialogRef: MatDialogRef<ChapterEditComponent>) { }
+  isEditMode: boolean = false;
+  constructor(
+    public dialogRef: MatDialogRef<ChapterEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Chapter
+  ) { }
 
   ngOnInit(): void {
+    if(this.data) this.isEditMode = true;
     this.chapterForm = new FormGroup({
-      chapterName: new FormControl('Chapter 1', [Validators.required]),
-      chapterDescription: new FormControl('null'),
-      keyPoints: new FormControl('null')
+      chapterName: new FormControl(this.isEditMode ? this.data.chapterName : null , [Validators.required]),
+      chapterDescription: new FormControl(this.isEditMode ? this.data.chapterDescription : null),
+      keyPoints: new FormControl(this.isEditMode ? this.data.keyPoints : null)
     });
   }
 
-  addChapter() {
+  onSubmit() {
     this.dialogRef.close(this.chapterForm);
   }
 

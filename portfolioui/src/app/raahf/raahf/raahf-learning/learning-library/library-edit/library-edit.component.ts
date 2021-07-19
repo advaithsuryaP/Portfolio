@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Chapter } from 'src/app/raahf/models/learning/library.model';
+import { ChapterDetailComponent } from '../chapter-detail/chapter-detail.component';
 import { ChapterEditComponent } from '../chapter-edit/chapter-edit.component';
 
 @Component({
@@ -29,24 +31,70 @@ export class LibraryEditComponent implements OnInit {
   }
 
   get chapters() { return (<FormArray>this.bookForm.get('chapters')).controls; }
+  get values() { return (<FormArray>this.bookForm.get('chapters')).value; }
 
-  openChapterModal(): void {
-    const dialogRef = this.dialog.open(ChapterEditComponent);
+  /*
+  * This function opens the ChapterEditComponent in a modal
+  * The values filled in the modal gets added to the chapters Array
+  */
+  openChapterAddModal(event: MouseEvent): void {
+    event.stopPropagation();
+    const dialogRef = this.dialog.open(ChapterEditComponent); 
     dialogRef.afterClosed().subscribe((result) => {
-      if(result instanceof FormGroup) {
-        (<FormArray>this.bookForm.get('chapters')).push(result)
-      }
+      if(result instanceof FormGroup) (<FormArray>this.bookForm.get('chapters')).push(result)
     });
   }
 
-  deleteChapter(chapter: any): void {
-    const index = this.chapters.indexOf(chapter);
-    console.log(index);
+  /*
+  * This function opens the ChapterEditComponent in a modal with pre-filled values
+  * The FormArray 'chapters' is then updated with the new value  
+  */
+  openChapterEditModal(event: MouseEvent, control: AbstractControl, elemIndex: number) {
+    event.stopPropagation();
+    const dialogRef = this.dialog.open(ChapterEditComponent, {
+      data: control.value
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      const newChapterArr: Chapter[] = [];
+      if(result instanceof FormGroup) {
+        this.values.forEach((element: Chapter, index: number) => {
+          if(index === elemIndex) newChapterArr.push(result.value);
+          else newChapterArr.push(element);
+        }); 
+      }
+      this.bookForm.get('chapters')?.patchValue(newChapterArr);
+    });
+  }
+
+  /*
+  * This function opens the ChapterDetailComponent in a modal
+  * The data is passed to the modal for display
+  */
+  openChapterDetailModal(chapter: Chapter): void {
+    const dialogRef = this.dialog.open(ChapterDetailComponent, {
+      data: chapter
+    });
+  }
+
+  /*
+  * This function is called to delete the FormGroup Element from the 'chapters' FormArray using the index 
+  */
+  deleteChapter(index: number): void {
     (<FormArray>this.bookForm.get('chapters')).removeAt(index);
   }
 
-  addBookToLibrary() {}
+  /*
+  * This function submits the whole form and adds the book to the library
+  */
+  addBookToLibrary() {
+    console.log(this.bookForm.value);
+  }
 
-  refresh() {}
+  /*
+  * Yet to figure out the functionality
+  */
+  refresh(event: MouseEvent) {
+    event.stopPropagation();
+  }
 
 }
