@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LearningHistoryComponent } from './learning-history.component';
+import { LearningEditComponent } from './learning-edit.component';
 
-describe('LearningHistoryComponent', () => {
-  let component: LearningHistoryComponent;
-  let fixture: ComponentFixture<LearningHistoryComponent>;
+describe('LearningEditComponent', () => {
+  let component: LearningEditComponent;
+  let fixture: ComponentFixture<LearningEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LearningHistoryComponent ]
+      declarations: [ LearningEditComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LearningHistoryComponent);
+    fixture = TestBed.createComponent(LearningEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

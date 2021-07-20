@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Chapter } from 'src/app/raahf/models/learning/library.model';
-import { ChapterDetailComponent } from '../chapter-detail/chapter-detail.component';
-import { ChapterEditComponent } from '../chapter-edit/chapter-edit.component';
+import { ChapterEditComponent } from './chapter-edit/chapter-edit.component';
 
 @Component({
-  selector: 'app-library-edit',
-  templateUrl: './library-edit.component.html',
-  styleUrls: ['./library-edit.component.css']
+  selector: 'app-learning-edit',
+  templateUrl: './learning-edit.component.html',
+  styleUrls: ['./learning-edit.component.css']
 })
-export class LibraryEditComponent implements OnInit {
+export class LearningEditComponent implements OnInit {
+  isPanelOpen = true;
   bookForm!: FormGroup;
   constructor(private fb: FormBuilder, private dialog: MatDialog) { }
 
@@ -71,9 +71,9 @@ export class LibraryEditComponent implements OnInit {
   * The data is passed to the modal for display
   */
   openChapterDetailModal(chapter: Chapter): void {
-    const dialogRef = this.dialog.open(ChapterDetailComponent, {
-      data: chapter
-    });
+    // const dialogRef = this.dialog.open(ChapterDetailComponent, {
+    //   data: chapter
+    // });
   }
 
   /*

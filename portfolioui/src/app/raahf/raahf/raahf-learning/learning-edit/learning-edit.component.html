@@ -63,9 +63,11 @@
                 </div>
                 <mat-accordion>
                     <!-- Chapters -->
-                    <mat-expansion-panel hideToggle expanded>
+                    <mat-expansion-panel hideToggle expanded (opened)="isPanelOpen = true" (closed)="isPanelOpen = false">
                         <mat-expansion-panel-header class="d-flex justify-content-between">
-                            <mat-panel-title class="d-flex align-items-center">Chapters</mat-panel-title>
+                            <mat-panel-title class="d-flex align-items-center">
+                                Click to {{isPanelOpen ? 'close' : 'open'}} chapters
+                            </mat-panel-title>
                             <div class="d-flex flex-row-reverse">
                                 <button mat-icon-button type="button" (click)="openChapterAddModal($event)" matTooltip="Add Chapter">
                                     <mat-icon>playlist_add</mat-icon>

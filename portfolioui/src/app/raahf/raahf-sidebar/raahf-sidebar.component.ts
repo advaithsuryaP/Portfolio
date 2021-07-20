@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteInfo } from '../models/routeinfo.model';
+import { SidebarRouteInfo } from '../models/sidebar-routes.model';
 
 @Component({
   selector: 'app-raahf-sidebar',
@@ -7,7 +7,7 @@ import { RouteInfo } from '../models/routeinfo.model';
   styleUrls: ['./raahf-sidebar.component.css']
 })
 export class RaahfSidebarComponent implements OnInit {
-  routeInfo!: RouteInfo[];
+  routeInfo!: SidebarRouteInfo[];
   constructor() { }
 
   ngOnInit(): void {

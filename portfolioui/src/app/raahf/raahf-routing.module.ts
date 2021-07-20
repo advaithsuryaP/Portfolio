@@ -8,6 +8,8 @@ import { RaahfHealthComponent } from './raahf/raahf-health/raahf-health.componen
 import { RaahfLearningComponent } from './raahf/raahf-learning/raahf-learning.component';
 import { RaahfSecurityComponent } from './raahf/raahf-security/raahf-security.component';
 import { RaahfDashboardComponent } from './raahf/raahf-dashboard/raahf-dashboard.component';
+import { LearningHomeComponent } from './raahf/raahf-learning/learning-home/learning-home.component';
+import { LearningEditComponent } from './raahf/raahf-learning/learning-edit/learning-edit.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,10 @@ const routes: Routes = [
       { path: 'finance', component: RaahfFinanceComponent },
       { path: 'goals', component: RaahfGoalsComponent },
       { path: 'health', component: RaahfHealthComponent },
-      { path: 'learning', component: RaahfLearningComponent },
+      { path: 'learning', component: RaahfLearningComponent, children: [
+        { path: '', component: LearningHomeComponent },
+        { path: 'add', component: LearningEditComponent }
+      ]},
       { path: 'security', component: RaahfSecurityComponent }
     ]
   }

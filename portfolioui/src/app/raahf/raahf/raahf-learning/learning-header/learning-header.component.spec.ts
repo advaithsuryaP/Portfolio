@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LearningLibraryComponent } from './learning-library.component';
+import { LearningHeaderComponent } from './learning-header.component';
 
-describe('LearningLibraryComponent', () => {
-  let component: LearningLibraryComponent;
-  let fixture: ComponentFixture<LearningLibraryComponent>;
+describe('LearningHeaderComponent', () => {
+  let component: LearningHeaderComponent;
+  let fixture: ComponentFixture<LearningHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LearningLibraryComponent ]
+      declarations: [ LearningHeaderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LearningLibraryComponent);
+    fixture = TestBed.createComponent(LearningHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

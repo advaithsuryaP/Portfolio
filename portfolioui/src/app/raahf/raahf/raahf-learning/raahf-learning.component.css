@@ -1,11 +1,11 @@
-.mat-toolbar {
-    height: 40px;
-}
-
-.spacer {
-    flex: 1 1 auto;
-}
-
 mat-icon {
     font-size: 21px;
+}
+
+.mat-tab-link {
+    opacity: 0.9;
+}
+
+a:hover {
+    color: #3f51b5;
 }

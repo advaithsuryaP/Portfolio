@@ -1,4 +1,4 @@
-export interface RouteInfo {
+export interface SidebarRouteInfo {
     path: string;
     title: string;
     icon: string;
